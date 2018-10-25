@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 2018_10_25_214456) do
     t.index ["user_id"], name: "index_gossips_on_user_id"
   end
 
-  create_table "private_message_receivers", force: :cascade do |t|
+  create_table "private_message_recipients", force: :cascade do |t|
     t.integer "private_message_id"
     t.integer "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["private_message_id"], name: "index_private_message_receivers_on_private_message_id"
-    t.index ["recipient_id"], name: "index_private_message_receivers_on_recipient_id"
+    t.index ["private_message_id"], name: "index_private_message_recipients_on_private_message_id"
+    t.index ["recipient_id"], name: "index_private_message_recipients_on_recipient_id"
   end
 
   create_table "private_messages", force: :cascade do |t|
