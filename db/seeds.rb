@@ -60,3 +60,24 @@ PrivateMessage.all.each do |pm|
                                    # TODO : find a way to avoid several times the same recipient in a PM !
   end
 end
+
+# Add 50 comments
+50.times do
+  # Select the comment's support
+  commentable_types = [Comment, Gossip]
+  commentable_type = commentable_types[rand(0..1)]
+
+  # Set the range of the rand according to the comment's support
+  if commentable_type == Comment && Comment.last != nil
+    commentable_id = rand(Comment.first.id..Comment.last.id)
+  elsif commentable_type == Gossip
+    commentable_id = rand(Gossip.first.id..Gossip.last.id)
+  else
+    redo # If no comments, we can't comment a comment => Try again
+  end
+
+  comment = Comment.create(content: Faker::Lorem.sentence(8),
+                           user_id: rand(User.first.id..User.last.id),
+                           commentable_id: commentable_id,
+                           commentable_type: commentable_type)
+end
