@@ -81,3 +81,23 @@ end
                            commentable_id: commentable_id,
                            commentable_type: commentable_type)
 end
+
+# Add 100 likes
+100.times do
+  # Select the like's support
+  likeable_types = [Comment, Gossip]
+  likeable_type = likeable_types[rand(0..1)]
+
+  # Set the range of the rand according to the like's support
+  if likeable_type == Comment && Comment.last != nil
+    likeable_id = rand(Comment.first.id..Comment.last.id)
+  elsif likeable_type == Gossip
+    likeable_id = rand(Gossip.first.id..Gossip.last.id)
+  else
+    redo # If no comments, we can't like a comment => Try again
+  end
+
+  like = Like.create(user_id: rand(User.first.id..User.last.id),
+                     likeable_id: likeable_id,
+                     likeable_type: likeable_type)
+end
