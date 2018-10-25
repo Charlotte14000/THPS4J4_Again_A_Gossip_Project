@@ -1,24 +1,18 @@
-# README
+# Again a Gossip Project in THP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Découverte des bases de données en Rails 
 
-Things you may want to cover:
+### Comment utiliser le programme ? 
 
-* Ruby version
+Cloner le repo, puis entrer les commandes suivantes pour préparer le programme
+```
+cd 
+bundle install
+```
+Puis pour lancer la console rails
+```
+rails c
+```
+Vous pourrez alors accéder aux différentes tables de la bdd.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Done by Tony KINO aka @Tony 
